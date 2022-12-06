@@ -1,0 +1,10 @@
+.table-profile{
+    width: 100%;
+    border: 2px solid darkgray;
+}
+.table-profile tr td{
+    border: 2px solid darkgray;
+}
+.table-profile tr th{
+    border: 2px solid darkgray;
+}

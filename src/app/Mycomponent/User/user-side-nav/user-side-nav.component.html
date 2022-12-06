@@ -1,0 +1,30 @@
+
+<div class="text-center">
+    <img [src]='imageURL' style="border-radius: 100px;"  height="150" width="150" >
+  </div >
+  <div class="text-center">
+    <button class="btn-primary" routerLink="upload-profile-image">edit</button>
+  </div>
+  <h1 class="text-center">{{name}}</h1>
+  
+  <button class="form-control" routerLink="home" mat-menu-item>
+      <mat-icon>home</mat-icon>
+      <span>Home</span>
+  </button>
+  
+  <button class="form-control" routerLink="profile" mat-menu-item>
+      <mat-icon>person</mat-icon>
+      <span>Profile</span>
+  </button>
+  <button class="form-control" mat-button routerLink="add-complaint" mat-menu-item>
+      <mat-icon>assignment</mat-icon>
+      <span>New Complaint</span>
+  </button>
+  <button class="form-control" mat-button [matMenuTriggerFor]="settings" mat-menu-item>
+      <mat-icon>settings</mat-icon>
+      <span>Settings</span>
+  </button>
+  <mat-menu #settings="matMenu">
+      <button mat-menu-item routerLink="edit-user-profile">edit user profile</button>
+      <button mat-menu-item routerLink="change-password">change password</button>
+  </mat-menu>

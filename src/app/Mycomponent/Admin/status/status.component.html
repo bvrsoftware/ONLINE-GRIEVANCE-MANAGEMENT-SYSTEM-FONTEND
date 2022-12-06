@@ -1,0 +1,28 @@
+<mat-card class="card">
+    <mat-card-content class="card-body">
+       <mat-card-title class="text-center"><h2>{{tableTitle}}</h2></mat-card-title>
+       <div class="text-center bg-danger" *ngIf="msg!=''" >{{msg}}</div>
+       <a class="btn btn-primary" [routerLink]='"/admin-dashboard/add-status"' >Add</a>
+       <hr>
+       <table class="table"> 
+           <thead class="thead-dark">
+               <tr>
+                 <th scope="col">S.No.</th>
+                 <th scope="col">Status Id.</th>
+                 <th scope="col">Status Name</th>
+                 <th scope="col">Action</th>
+               </tr>
+             </thead>  
+             <tbody>
+               <tr *ngFor="let t of table let i = index">
+                   <th scope="row">{{i+1}}</th>
+                   <td>{{t.id}}</td>
+                   <td>{{t.statusName}}</td>
+                   <td>
+                    <button [routerLink]='"/admin-dashboard/edit-status/"+t.id' class="btn btn-success">edit</button>
+                </td>
+                 </tr>
+             </tbody> 
+       </table>
+    </mat-card-content>   
+   </mat-card>

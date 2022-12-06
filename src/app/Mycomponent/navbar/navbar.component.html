@@ -1,0 +1,21 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" routerLink="">Ignou </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <mat-icon aria-hidden="false" style="color: white;margin-right: 0%;" aria-label="Example home icon">home</mat-icon>
+      <span class="navbar-toggler-icon">
+        
+      </span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
+      <div class="navbar-nav" *ngIf="!islogin">
+          <a class="nav-link active" aria-current="page" routerLink="">Home</a>
+          <a class="nav-link" routerLink="register">Register</a>
+          <a class="nav-link" routerLink="login">Login</a>
+          </div>
+          <div class="navbar-nav" *ngIf="islogin">
+          <a class="nav-link" (click)='logout()'>Logout</a>
+      </div>
+    </div>
+  </div>
+</nav>

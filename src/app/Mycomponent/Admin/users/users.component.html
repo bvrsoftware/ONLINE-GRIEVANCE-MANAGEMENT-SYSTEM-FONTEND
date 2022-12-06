@@ -1,0 +1,41 @@
+<mat-card class="card">
+    <mat-card-content class="card-body">
+       <mat-card-title class="text-center"><h2>{{tableTitle}}</h2></mat-card-title>
+       <div class="text-center bg-danger" *ngIf="msg!=''" >{{msg}}</div>
+       <hr>
+       <table class="table"> 
+           <thead class="thead-dark">
+               <tr>
+                 <th scope="col">S.No.</th>
+                 <th scope="col">F.Name</th>
+                 <th scope="col">S.Name</th>
+                 <th scope="col">Email</th>
+                 <th scope="col">Contact No</th>
+                 <th scope="col">DOB</th>
+                 <th scope="col">Authority</th>
+                 <th scope="col">Status</th>
+                 <th scope="col">Action</th>
+               </tr>
+             </thead>  
+             <tbody>
+               <tr *ngFor="let t of table.content let i = index">
+                   <th scope="row">{{i+1}}</th>
+                   <td>{{t.firstname}}</td>
+                   <td>{{t.lastname}}</td>
+                   <td>{{t.email}}</td>
+                   <td>{{t.contactNo}}</td>
+                   <td>{{t.dob}}</td>
+                   <td>
+                     <table>
+                       <tr *ngFor="let role of t.roles let r=index">
+                         <td>{{role.roleName}}</td>
+                        </tr>
+                      </table>
+                    </td>
+                    <td>{{t.status}}</td>
+                    <td><button [routerLink]='"/admin-dashboard/profile-view/"+t.id' class="btn-primary ">view</button></td>
+                 </tr>
+             </tbody> 
+       </table>
+    </mat-card-content>   
+   </mat-card>

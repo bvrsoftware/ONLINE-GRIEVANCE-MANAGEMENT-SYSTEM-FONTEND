@@ -1,0 +1,61 @@
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <img [src]='imageUrl' height="350" width="100%" alt="" srcset="">
+        </div>
+    </div>
+    
+</div>
+<hr>
+<div class="container-fluid">
+    <table class="table-profile">
+        <tr>
+            <th>First Name :</th>
+            <td>{{table.firstname}}</td>
+            <th>Mail Id :</th>
+            <td>{{table.email}}</td>
+        </tr>
+        <tr>
+            <th>Last Name :</th>
+            <td>{{table.lastname}}</td>
+            <th>Cotact Number :</th>
+            <td>{{table.contactNo}}</td>
+        </tr>
+        <tr>
+            <th>Date of Birth :</th>
+            <td>{{table.dob}}</td>
+            <th>Gender :</th>
+            <td>{{table.gender}}</td>
+        </tr>
+        <tr>
+            <th>Date of Registation :</th>
+            <td>{{table.regDate}}</td>
+            <th rowspan="2">Address:</th>
+            <td rowspan="2">{{table.address}}</td>
+        </tr>
+        <tr>
+            <th>Last Update Date :</th>
+            <td>{{table.updatationDate}}</td>
+        </tr>
+        <tr>
+            <th>State  :</th>
+            <td>{{table.state}}</td>
+            <th rowspan="2">Roles :</th>
+            <td rowspan="2">
+                <ol >
+                    <li *ngFor="let r of table.roles">{{r.roleName}}</li>
+                </ol>
+            </td>
+        </tr>
+        <tr>
+            <th>Country  :</th>
+            <td>{{table.country}}</td>
+        </tr>
+        <tr>
+            <th>Post Pin Code  :</th>
+            <td>{{table.pinCode}}</td>
+            <th>Status :</th>
+            <td style="background-color: darkred;">{{table.status}}</td>
+        </tr>
+      </table>
+</div>

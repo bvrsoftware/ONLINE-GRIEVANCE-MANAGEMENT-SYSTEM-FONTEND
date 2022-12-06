@@ -1,0 +1,27 @@
+<div class="bootstrap-wrapper">
+
+    <div class="controller">
+      <div class="row">
+        <div class="col-md-6 offset-md-3">
+          <div class="container text-center">
+            <img src="../../../assets/logo.jpg" height="150px" width="150px" alt="">
+          </div>
+          <h1 class="text-center"> {{title}}</h1>
+          <form (ngSubmit)="formSubmit()">
+            <input type="hidden" [(ngModel)]='body.id' name="id">             
+            <mat-form-field class="full-width" appearance="outline">
+              <mat-label>Status Name</mat-label>
+              <input type="text" [(ngModel)]='body.statusName'
+                    name="statusName" matInput  placeholder="Enter status Name">
+            <!--  <mat-hint class="text-danger">enter vaild email</mat-hint>-->
+            </mat-form-field>
+            <div class="container text-center">
+                <button type="submit" class="btn btn-primary">Save</button>&nbsp;&nbsp;
+                <button type="reset" class="btn btn-danger">reset</button>
+            </div>
+            <br>
+          </form> 
+        </div>
+      </div>
+    </div>
+  </div>

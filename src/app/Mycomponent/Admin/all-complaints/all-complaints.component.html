@@ -1,0 +1,76 @@
+<mat-card class="card">
+  <mat-card-content class="card-body">
+    <mat-card-title class="text-center">
+      <h2>{{tableTitle}}</h2>
+    </mat-card-title>
+    <hr>
+    <div class="row">
+      <form (ngSubmit)="formSubmit()">
+        <table class="full-width">
+          <tr>
+            <td>
+              <mat-form-field class="full-width" appearance="outline">
+                <mat-label>Choose a Type </mat-label>
+                <mat-select (selectionChange)="selectionChangeFun()" name="selectvalue" [(ngModel)]="selectvalue">
+                  <mat-option value="Category">Category</mat-option>
+                  <mat-option value="Status">Status</mat-option>
+                  <mat-option value="State">State</mat-option>
+                </mat-select>
+              </mat-form-field>
+            </td>
+            <td>
+              <mat-form-field class="full-width" appearance="outline">
+                <mat-label>Choose an one</mat-label>
+                <mat-select name="searchvalue" [(ngModel)]="searchvalue">
+                  <div *ngFor="let s of orginalvalue">
+                    <mat-option [value]="s.id">{{s.statusName}}{{s.stateName}}{{s.categoryName}}</mat-option>
+                  </div>
+                </mat-select>
+              </mat-form-field>
+            </td>
+            <td>
+              <button type="submit" class="btn btn-primary">search</button>
+            </td>
+          </tr>
+        </table>
+        <br>
+      </form>
+    </div>
+    <table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">S.No.</th>
+        <th scope="col">C.No.</th>
+          <th scope="col">Complaint Details</th>
+          <th scope="col">Complaint File</th>
+          <th scope="col">Status</th>
+          <th scope="col">Last. Update</th>
+          <th scope="col">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let t of table let i = index">
+          <th scope="row">{{i+1}}</th>
+          <td>{{t.id}}</td>
+          <td>{{t.complaintDetails}}</td>
+          <td>{{t.complaintFile}}</td>
+          <td style="background-color: aqua;">
+            <div [ngSwitch]="t.statusId" class="col" style="font-variant-caps: all-petite-caps; font-size: 25px;">
+              <span *ngSwitchCase="statusId.pnid" style="color:darkred">panding</span>
+              <span *ngSwitchCase="statusId.pcid" style="color:blue">processing</span>
+              <span *ngSwitchCase="statusId.cnid" style="color:red">cancel</span>
+              <span *ngSwitchCase="statusId.coid" style="color:green">closed</span>
+              <span *ngSwitchDefault>Status is not maych with database</span>
+     </div> 
+          </td>
+          <td>{{t.lastUpdationDate}}</td>
+          <td> 
+            <button class="btn btn-success" [routerLink]='"/admin-dashboard/view-complaint-remark/"+t.id'>View</button>
+            &nbsp;&nbsp;
+            <a class="btn btn-primary" [routerLink]='"/admin-dashboard/add-complaint-remark/"+t.id' >Remark</a></td>
+        
+        </tr>
+      </tbody>
+    </table>
+  </mat-card-content>
+</mat-card>

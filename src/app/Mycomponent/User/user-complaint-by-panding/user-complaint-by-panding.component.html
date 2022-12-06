@@ -1,0 +1,26 @@
+<mat-card class="card">
+    <mat-card-content class="card-body">
+       <mat-card-title class="text-center"><h2>{{tableTitle}}</h2></mat-card-title>
+       <hr>
+       <table class="table"> 
+           <thead class="thead-dark">
+               <tr>
+                 <th scope="col">S.No.</th>
+                 <th scope="col">C.No.</th>
+                 <th scope="col">Complaint Details</th>
+                 <th scope="col" >Status</th>
+                 <th scope="col">Last. Update</th>
+               </tr>
+             </thead>  
+             <tbody>
+               <tr *ngFor="let t of table let i = index">
+                   <th *ngIf="t.statusId==sid" scope="row">{{i+1}}</th>
+                   <td *ngIf="t.statusId==sid">{{t.id}}</td>
+                   <td *ngIf="t.statusId==sid">{{t.complaintDetails}}</td>
+                   <td *ngIf="t.statusId==sid" style="background-color:darkred">panding</td>
+                   <td *ngIf="t.statusId==sid">{{t.lastUpdationDate}}</td>
+                 </tr>
+             </tbody> 
+       </table>
+    </mat-card-content>   
+   </mat-card>

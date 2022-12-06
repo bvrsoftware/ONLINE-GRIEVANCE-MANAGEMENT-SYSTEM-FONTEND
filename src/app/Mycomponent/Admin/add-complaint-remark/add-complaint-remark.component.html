@@ -1,0 +1,45 @@
+<div class="bootstrap-wrapper">
+
+    <div class="controller">
+      <div class="row">
+        <div class="col-md-8 offset-md-2">
+          <div class="container text-center">
+          </div>
+          <h1 class="text-center"> {{title}}</h1>
+          <hr>
+          <div class="controller bg-light">
+            {{complaintDetail}}
+        </div>
+          <form (ngSubmit)="formSubmit()">
+            <input type="hidden" [(ngModel)]='body.id' name="id"> 
+                       
+            <mat-form-field appearance="outline">
+              <mat-label>Complaint Number</mat-label>
+              <input type="text" [(ngModel)]='body.complaintId'
+                    name="complaintId" matInput  disabled="disabled">
+            <!--  <mat-hint class="text-danger">enter vaild email</mat-hint>-->
+            </mat-form-field>
+            <mat-form-field class="full-width" appearance="outline">
+                <mat-label>Enter Remark Details</mat-label>
+                <textarea [(ngModel)]='body.remark' rows="5"
+                      name="remark" matInput  placeholder="Enter complaint remark Description & Details"></textarea>
+              <!--  <mat-hint class="text-danger">enter vaild email</mat-hint>-->
+              </mat-form-field>
+              <mat-form-field  appearance="outline">
+                <mat-label>Choose an Status Name</mat-label>
+                <mat-select (selectionChange)="setStatusIsFun()" name="statusId" [(ngModel)]="body.statusId" >
+                  <div *ngFor="let s of status">
+                      <mat-option  [value]="s.id">{{s.statusName}}</mat-option>
+                  </div>
+                  </mat-select>
+              </mat-form-field>
+            <div class="container text-center">
+                <button type="submit" class="btn btn-primary">Save</button>&nbsp;&nbsp;
+                <button type="reset" class="btn btn-danger">reset</button>
+            </div>
+            <br>
+          </form> 
+        </div>
+      </div>
+    </div>
+  </div>

@@ -1,0 +1,67 @@
+<div class="bootstrap-wrapper">
+
+    <div class="controller">
+      <div class="row">
+        <div class="col-md-8 offset-md-2">
+          <div class="container text-center">
+            <img src="../../../assets/logo.jpg" height="150px" width="150px" alt="">
+          </div>
+          <h1 class="text-center"> {{title}}</h1>
+          <div class="text-center bg-danger" *ngIf="msg!=''" >{{msg}}</div>
+          <form (ngSubmit)="formSubmit()">
+            <input type="hidden" [(ngModel)]='body.id' name="id"> 
+            <table class="full-width">
+                <tr>
+                    <td>            
+                        <mat-form-field class="full-width" appearance="outline">
+                          <mat-label>Choose an Category Name</mat-label>
+                          <mat-select (selectionChange)="subCategoryFun()" name="categoryId" [(ngModel)]="body.categoryId" >
+                            <div *ngFor="let c of category">
+                                <mat-option  [value]="c.id">{{c.categoryName}}</mat-option>
+                            </div>
+                            </mat-select>
+                        </mat-form-field>
+                    </td>
+                    <td>
+                        <mat-form-field class="full-width" appearance="outline">
+                            <mat-label>Choose an subCategory Name</mat-label>
+                            <mat-select  name="subcategoryId" [(ngModel)]="body.subcategoryId" >
+                              <div *ngFor="let s of subCategory">
+                                  <mat-option  [value]="s.id">{{s.subCategoryName}}</mat-option>
+                              </div>
+                              </mat-select>
+                            </mat-form-field>
+                    </td>
+                </tr>
+                </table>
+            <mat-form-field class="full-width" appearance="outline">
+                <mat-label>Category Description Name</mat-label>
+                <textarea [(ngModel)]='body.complaintDetails' rows="10"
+                      name="complaintDetails" matInput  placeholder="Enter complaint Details ">
+                    </textarea>
+              <!--  <mat-hint class="text-danger">enter vaild email</mat-hint>-->
+              </mat-form-field>
+              <table class="full-width">
+                <tr>
+                    <td>            
+                        <mat-form-field class="full-width" appearance="outline">
+                          <mat-label>Choose an State Name</mat-label>
+                          <mat-select name="stateId" [(ngModel)]="body.stateId" >
+                            <div *ngFor="let s of states">
+                                <mat-option  [value]="s.id">{{s.stateName}}</mat-option>
+                            </div>
+                            </mat-select>
+                        </mat-form-field>
+                    </td><td></td>
+                </tr>
+              </table>
+            <div class="container text-center">
+                <button type="submit" class="btn btn-primary">Save</button>&nbsp;&nbsp;
+                <button type="reset" class="btn btn-danger">reset</button>
+            </div>
+            <br>
+          </form> 
+        </div>
+      </div>
+    </div>
+  </div>

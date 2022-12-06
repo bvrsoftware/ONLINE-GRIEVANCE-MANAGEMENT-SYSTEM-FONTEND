@@ -1,0 +1,65 @@
+<div class="bootstrap-wrapper">
+
+  <div class="controller">
+    <div class="row">
+      <div class="col-md-6 offset-md-3">
+        <div class="container text-center">
+          <img src="../../../assets/logo.jpg" height="150px" width="150px" alt="">
+        </div>
+        <h1 class="text-center"> Register here !!!</h1>
+        <form (ngSubmit)="formSubmit()">
+          <table class="full-width">
+            <tr>
+              <td>
+                <mat-form-field class="full-width" appearance="outline">
+                  <mat-label>First Name</mat-label>
+                  <input type="text"
+                  [(ngModel)]='user.firstname' name="firstname" matInput   placeholder="Enter first name" required>
+                  <mat-hint class="text-danger" *ngIf='error.firstname!=""'>{{error.firstname}}</mat-hint>
+                </mat-form-field>
+              </td>
+              <td>
+              <mat-form-field class="full-width" appearance="outline">
+                <mat-label>Last Name</mat-label>
+                <input type="text"
+                [(ngModel)]='user.lastname' name="lastname" matInput  placeholder="Enter last name">
+              </mat-form-field>
+              </td>
+            </tr>
+          </table>
+          
+           
+          <mat-form-field class="full-width" appearance="outline">
+            <mat-label>Email</mat-label>
+            <input type="email"
+            [(ngModel)]='user.email' name="email" matInput  placeholder="Ex. pat@example.com" required>
+            <mat-hint class="text-danger" *ngIf='error.email!=""'>{{error.email}}</mat-hint>
+          </mat-form-field>
+          <mat-form-field class="full-width" appearance="outline">
+            <mat-label>Date of Birth</mat-label>
+            <input type="date"
+            [(ngModel)]='user.dob' name="dob" matInput  required>
+          <!--  <mat-hint class="text-danger">enter vaild email</mat-hint>-->
+          </mat-form-field>
+          <mat-form-field class="full-width" appearance="outline">
+              <mat-label>Password</mat-label>
+              <input type="password"
+              [(ngModel)]='pass1' name="pass1" matInput  placeholder="Enter Password " required>
+              <mat-hint class="text-danger" *ngIf='error.password!=""'>{{error.password}}</mat-hint>
+            </mat-form-field>
+            <mat-form-field class="full-width" appearance="outline">
+              <mat-label>Password</mat-label>
+              <input type="password"
+              [(ngModel)]='pass2' name="pass2" matInput  placeholder="Re-Enter Password " required>
+              <mat-hint class="text-danger" *ngIf='error.pass2!=""'>{{error.pass2}}</mat-hint>
+            </mat-form-field>
+          <div class="container text-center">
+              <button type="submit" class="btn btn-primary">Register</button>&nbsp;&nbsp;
+              <button type="reset" class="btn btn-danger">reset</button>
+          </div>
+          <br>
+        </form> 
+      </div>
+    </div>
+  </div>
+</div>
